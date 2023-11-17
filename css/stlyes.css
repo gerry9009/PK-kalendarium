@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: #000;
+}
+
+body {
+  font-family: "Mountains of Christmas", serif;
+}
+
+header {
+  height: 30vh;
+  background: #de8f5f;
+  background-image: url("../assets/header.jpeg");
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2rem;
+  font-size: 2rem;
+}
+
+main {
+  background-image: url("../assets/background.jpeg");
+  padding: 2rem;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  color: #fff;
+  width: 25vw;
+  height: 30vh;
+  position: relative;
+}
+
+.card_content {
+  position: absolute;
+  background-color: #db1940;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 2%;
+  border: 6px solid #db1940;
+  box-shadow: #94949488 5px 2px 15px;
+}
+
+.card:hover .card_front {
+  transform: rotateY(180deg);
+}
+
+.card:hover .card_back {
+  transform: rotateY(0);
+}
+
+.card_front {
+  cursor: pointer;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+}
+
+.card_back {
+  transform: rotateY(180deg);
+  background: #a3b763;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  height: 5vh;
+  background: #a3b763;
+  color: #000;
+}
