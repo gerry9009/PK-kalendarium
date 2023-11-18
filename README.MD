@@ -2,6 +2,8 @@
 
 Ünnepi kallendárium mini projekt a [Programozás Karrier youtube](https://www.youtube.com/@programozaskarrier) csatornáján.
 
+**[Oldal előnézete](https://gerry9009.github.io/PK-kalendarium/)**
+
 ## Képek:
 
 [UNSPLASH](https://unsplash.com/)
