@@ -22,10 +22,9 @@ const days = [
     link: "https://www.youtube.com/embed/80Klug7Dge4?si=LmnhiTVvaCzkhELF",
     isFlipped: false,
   },
-
   {
     day: 5,
-    link: "https://www.youtube.com/watch?v=5QM-z17n4S4&t=1s",
+    link: "https://www.youtube.com/embed/5QM-z17n4S4?si=-az8zIpoMQO_5TV-",
     isFlipped: false,
   },
 
