@@ -76,6 +76,25 @@ main {
   background: #a3b763;
   color: #000;
   font-size: 1.2rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card_header {
+  background: #000;
+  height: 50%;
+  width: 100%;
+}
+
+.card_header iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.card_body {
+  height: 50%;
+  display: flex;
+  align-items: center;
 }
 
 .is-flipped {
