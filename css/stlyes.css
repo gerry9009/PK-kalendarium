@@ -81,9 +81,9 @@ main {
 }
 
 .card_header {
-  background: #000;
   height: 50%;
   width: 100%;
+  background: #000;
 }
 
 .card_header iframe {
@@ -100,6 +100,29 @@ main {
 .is-flipped {
   transform: rotateY(180deg);
   visibility: hidden;
+}
+
+.btn {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  max-width: 550px;
+  padding: 1rem;
+  font-size: 2rem;
+  margin: 5rem auto;
+  background: #a3b763;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.btn:hover {
+  background: #bad563;
+}
+
+.btn:active {
+  transform: scale(0.96);
 }
 
 footer {

@@ -1,13 +1,15 @@
-import days from "../data/data.js";
+import data from "../data/data.js";
 
 const $container = document.querySelector(".js-container");
+const $btn = document.querySelector(".js-btn");
+
 const date = new Date();
 const today = date.getDate();
 
-let data;
+let days;
 
-function saveToLocalStorage() {
-  localStorage.setItem("data", JSON.stringify(data));
+function saveToStorage() {
+  localStorage.setItem("data", JSON.stringify(days));
 }
 
 function initialData() {
@@ -15,20 +17,20 @@ function initialData() {
   const localData = JSON.parse(storageData);
 
   if (localData) {
-    data = localData;
+    days = localData;
   } else {
-    data = days;
+    days = data;
   }
 }
 
-function templateCard(item) {
+function templateCard(day) {
   const card = document.createElement("div");
   const front = document.createElement("div");
   const back = document.createElement("div");
 
   card.classList = "card";
 
-  if (item.isFlipped) {
+  if (day.isFlipped) {
     front.classList = "card_content card_front is-flipped";
     back.classList = "card_content card_back";
   } else {
@@ -36,27 +38,28 @@ function templateCard(item) {
     back.classList = "card_content card_back is-flipped";
   }
 
-  front.innerHTML = `<h2>December ${item.day}.</h2>`;
+  front.innerHTML = `<h2>December ${day.day}.</h2>`;
 
   let message;
 
-  if (Number(item.day) === 24) {
+  if (day.day === 24) {
     message = "Ma van Karácsony napja";
   } else {
-    message = `Már csak ${24 - item.day} nap van Karácsonyig`;
+    message = `Már csak ${24 - day.day} nap van Karácsonyig`;
   }
 
   back.innerHTML = `
     <div class="card_header">
-        <iframe
-            src="${item.link}"
-            title="YouTube video player"
-            frameborder="0"
-            allowfullscreen
-        ></iframe>
+      <iframe 
+        title="YouTube video player"
+        src="${day.link}"
+        frameborder="0"
+        allowfullscreen
+      >
+      </iframe>
     </div>
     <div class="card_body">
-        <p>${message}</p>
+      <p>${message}</p>
     </div>
   `;
 
@@ -64,16 +67,16 @@ function templateCard(item) {
   card.appendChild(back);
 
   card.addEventListener("click", () => {
-    if (item.day <= today) {
+    if (day.day <= today) {
       front.classList.add("is-flipped");
       back.classList.remove("is-flipped");
 
-      data[item.day - 1].isFlipped = true;
+      days[day.day - 1].isFlipped = true;
 
-      saveToLocalStorage();
+      saveToStorage();
     } else {
       alert(
-        "Hooooo-hooooo-hoooo! Ennek a dátumnak még nincs itt az ideje! Várj türelemmel!"
+        "Hoooo-hooooo-hoooo! Ennek a dátumnak még nincs itt az ideje! Várj türelemmel!"
       );
     }
   });
@@ -82,12 +85,24 @@ function templateCard(item) {
 }
 
 function render() {
-  for (let day of data) {
+  $container.innerHTML = "";
+
+  for (let day of days) {
     const newCard = templateCard(day);
 
     $container.appendChild(newCard);
   }
 }
+
+$btn.addEventListener("click", () => {
+  for (let day of days) {
+    day.isFlipped = false;
+  }
+
+  localStorage.clear();
+
+  render();
+});
 
 initialData();
 render();
